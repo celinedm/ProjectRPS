@@ -52,12 +52,16 @@ function playRound(playerSelection, computerSelection) {
 
 
   }
+  function game(){
+    const input = prompt("Choose your weapon!");
+    const playerSelection = input;
+    const playerInsensitive = playerSelection.toLowerCase();
+    const computerSelection = getComputerChoice();
+    const computerInsensitive = computerSelection.toLowerCase();
 
+   playRound();
+    return console.log(playRound(playerInsensitive, computerInsensitive));
+    
+  }
 
-  const playerSelection = "rock";
-  const playerInsensitive = playerSelection.toLowerCase();
-  console.log(`player selection: ` + playerInsensitive);
-  const computerSelection = getComputerChoice();
-  const computerInsensitive = computerSelection.toLowerCase();
-  console.log(`computer selection: ` + computerInsensitive);
-  console.log(playRound(playerInsensitive, computerInsensitive));
+game();
