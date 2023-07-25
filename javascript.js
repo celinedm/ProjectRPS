@@ -66,9 +66,9 @@ function playRound(playerSelection, computerSelection) {
     const playerSelection = input.toLowerCase();
     const computerSelection = getComputerChoice();
  
+
     playRound();
         return console.log(playRound(playerSelection, computerSelection));
-
     
   }
 
@@ -86,11 +86,13 @@ function playRound(playerSelection, computerSelection) {
 
   }
 
+
   game();
   game();
   game();
   game();
   game();
- 
+  
+
   
  console.log(keepScore());
