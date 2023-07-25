@@ -1,15 +1,18 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     let computerChoice = ["Rock" , "Paper", "Scissors"];
     let randomChoice = Math.floor(Math.random() * computerChoice.length) + 1;
 
     if (randomChoice === 1) {
-        return "Rock";
+        return "rock";
     }
     if (randomChoice === 2) {
-        return "Paper";
+        return "paper";
     }
     if (randomChoice === 3){
-        return "Scissors"; 
+        return "scissors"; 
     }
 
     
@@ -24,27 +27,33 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock"){
         if (computerSelection == "scissors"){
+            playerScore++;
             return "You won! Rock beats Scissors";
         }
         else if (computerSelection == "paper"){
+            computerScore++;
             return "You lost! Paper beats Rock";
         }
     }
 
     if (playerSelection == "paper"){
         if (computerSelection == "rock"){
+            playerScore++;
             return "You won! Paper beats Rock";
         }
         else if (computerSelection == "scissors"){
+            computerScore++;
             return "You lost! Scissors beats Paper";
         }
     }
 
     if (playerSelection == "scissors"){
         if (computerSelection == "rock"){
+            computerScore++;
         return "You lost! Rock beats Scissors";
         }
         else if (computerSelection == "paper"){
+            playerScore++;
             return "You won! Scissors beats Paper";
         }
     }
@@ -53,15 +62,35 @@ function playRound(playerSelection, computerSelection) {
 
   }
   function game(){
-    const input = prompt("Choose your weapon!");
-    const playerSelection = input;
-    const playerInsensitive = playerSelection.toLowerCase();
+    input = prompt("Choose your weapon");
+    const playerSelection = input.toLowerCase();
     const computerSelection = getComputerChoice();
-    const computerInsensitive = computerSelection.toLowerCase();
+ 
+    playRound();
+        return console.log(playRound(playerSelection, computerSelection));
 
-   playRound();
-    return console.log(playRound(playerInsensitive, computerInsensitive));
     
   }
 
-game();
+  function keepScore(){
+    if (playerScore > computerScore){
+        return "You won the battle! You scored " + playerScore
+    }
+    else if (computerScore > playerScore){
+        return "You lost the war! The computer scored " + computerScore
+    }
+
+    else if (playerScore == computerScore){
+        return "...how?"
+    }
+
+  }
+
+  game();
+  game();
+  game();
+  game();
+  game();
+ 
+  
+ console.log(keepScore());
